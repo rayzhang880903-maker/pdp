@@ -6,7 +6,29 @@
       "Bash(kill %1)",
       "Bash(node -e \"const c = require\\('chart.js'\\); console.log\\(c.Chart.VERSION\\);\")",
       "Bash(node -e \"console.log\\(require\\('./node_modules/chart.js/package.json'\\).version\\)\")",
-      "Bash(node -e ':*)"
+      "Bash(node -e ':*)",
+      "Bash(/c/Users/UMS/.claude/skills/gstack/browse/dist/browse goto:*)",
+      "Bash(/c/Users/UMS/.claude/skills/gstack/browse/dist/browse click:*)",
+      "Bash(/c/Users/UMS/.claude/skills/gstack/browse/dist/browse js ':*)",
+      "Bash(/c/Users/UMS/.claude/skills/gstack/browse/dist/browse js:*)",
+      "Bash(/c/Users/UMS/.claude/skills/gstack/browse/dist/browse snapshot:*)",
+      "Bash(/c/Users/UMS/.claude/skills/gstack/browse/dist/browse screenshot:*)",
+      "Bash(/c/Users/UMS/.claude/skills/gstack/browse/dist/browse console:*)",
+      "Bash(curl -s http://localhost:3001/health)",
+      "Bash(curl:*)",
+      "Bash(python -m json.tool)",
+      "Bash(python -c ':*)",
+      "Bash(netstat -ano)",
+      "Bash(node -e \"import\\('dotenv'\\).then\\(m => m.config\\(\\)\\).then\\(\\(\\) => console.log\\('APP_ID:', process.env.FEISHU_APP_ID\\)\\)\")",
+      "Bash(taskkill //F //IM node.exe)",
+      "Read(//d D:/ccTest/asssessments/**)",
+      "Read(//tmp/**)",
+      "Read(//d/D--ccTest/asssessments/**)",
+      "Bash(pkill -f \"node.*index.ts\")",
+      "Bash(node --watch src/index.ts)",
+      "Bash(tasklist)",
+      "Bash(findstr /i node)",
+      "Bash(npx tsx:*)"
     ]
   }
 }

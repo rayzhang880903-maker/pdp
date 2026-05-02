@@ -1,6 +1,7 @@
 import { ref, computed } from 'vue';
 import type { AnimalType, ScoreMap, ResultData, AssessmentState } from '../types';
 import { questions } from '../data/questions';
+import { submitResultToFeishu, getAnonymousId } from '../services/feishuApi';
 
 // 计分规则映射：questionId -> 动物类型
 const SCORING_MAP: Record<number, AnimalType> = {
@@ -92,6 +93,10 @@ export function useAssessment() {
 
     state.value = 'completed';
     localStorage.setItem(STORAGE_KEY_STATE, 'completed');
+
+    // 静默写入飞书（失败不影响用户体验）
+    const anonId = getAnonymousId();
+    submitResultToFeishu(anonId, primaryType, scores).catch(console.error);
 
     return { primaryType, scores, totalCompleted: Object.keys(answers.value).length };
   };

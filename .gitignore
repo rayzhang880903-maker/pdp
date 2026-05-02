@@ -30,6 +30,8 @@ agentloture.svg
 .idea/
 *.swp
 *.swo
+node_modules/
+dist/
 
 # Node (if any)
 node_modules/
