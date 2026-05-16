@@ -8,7 +8,7 @@ const TYPE_NAMES: Record<AnimalType, string> = {
   chameleon: '变色龙',
 };
 
-const PROXY_URL = import.meta.env.VITE_API_PROXY_URL || 'http://localhost:3001';
+const PROXY_URL = '';
 
 export function getAnonymousId(): string {
   let id = localStorage.getItem('pdp_anonymous_id');
