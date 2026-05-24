@@ -15,6 +15,14 @@ const animalNames: Record<string, string> = {
   owl: '猫头鹰',
   chameleon: '变色龙',
 };
+
+const animalColors: Record<string, string> = {
+  tiger: '#F97316',
+  peacock: '#EC4899',
+  koala: '#92400E',
+  owl: '#1E40AF',
+  chameleon: '#7C3AED',
+};
 </script>
 
 <template>
@@ -26,9 +34,26 @@ const animalNames: Record<string, string> = {
       <p class="total-score">总分：{{ result.scores[result.primaryType] }}分</p>
     </div>
 
+    <!-- 五维得分 -->
+    <div class="section">
+      <h2 class="section-title">五维得分</h2>
+      <div class="scores-list">
+        <div v-for="(name, type) in animalNames" :key="type" class="score-item">
+          <div class="score-header">
+            <span class="score-label">{{ name }}</span>
+            <span class="score-value">{{ result.scores[type] }}分</span>
+          </div>
+          <div class="score-bar">
+            <span class="score-fill" :style="{ width: (result.scores[type] / 30 * 100) + '%', background: animalColors[type] }"></span>
+          </div>
+          <div class="dimension-desc">{{ info.dimensionDescriptions[type] }}</div>
+        </div>
+      </div>
+    </div>
+
     <!-- 雷达图 -->
     <div class="section">
-      <h2 class="section-title">五维得分分布</h2>
+      <h2 class="section-title">五维分布图</h2>
       <RadarChart :scores="result.scores" />
     </div>
 
@@ -97,6 +122,54 @@ const animalNames: Record<string, string> = {
   padding: 24px;
   margin-bottom: 16px;
   box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+}
+
+.score-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.score-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.score-label {
+  font-size: 14px;
+  color: var(--color-text);
+}
+
+.score-bar {
+  width: 100%;
+  height: 8px;
+  min-height: 8px;
+  background: var(--color-bg);
+  border-radius: 4px;
+  overflow: hidden;
+  display: block;
+}
+
+.score-fill {
+  display: block;
+  height: 8px;
+  min-height: 8px;
+  border-radius: 4px;
+  transition: width 0.5s ease;
+}
+
+.score-value {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.dimension-desc {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--color-text);
+  padding-left: 4px;
 }
 
 .section-title {
